@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.buttonscroll::-webkit-scrollbar
+{
+          display: none;
+}
+.bgshimmer
+{
+          background: rgb(122, 253, 122);
+          animation: animate 2s linear infinite;
+}
+@keyframes animate 
+{
+          0%
+          {
+                    opacity: .75;
+          }
+          25%
+          {
+                    opacity: .50;
+          }
+          50%
+          {
+                    opacity: .25;
+          }
+          75%
+          {
+                    opacity: .50;
+          }
+          100%
+          {
+                    opacity: 1;
+          }
+}

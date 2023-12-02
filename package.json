@@ -1,0 +1,41 @@
+{
+  "name": "desitube",
+  "version": "1.0.0",
+  "description": "\"this is copy of youtube\"",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RK-Deepak/DesiTubee.git"
+  },
+  "keywords": [
+    "\"react",
+    "youtube",
+    "music\""
+  ],
+  "author": "Deepak Verma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RK-Deepak/DesiTubee/issues"
+  },
+  "homepage": "https://github.com/RK-Deepak/DesiTubee#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.20.1",
+    "redux": "^4.2.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "postcss": "^8.4.32",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.5"
+  }
+}
