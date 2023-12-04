@@ -12,11 +12,14 @@ const Videos=()=>
      }
 
      return (
+          
+
           <div className="flex flex-wrap justify-evenly my-2 gap-3 p-2">
                {
                     popularvideos.map((video)=><VideoCard video={video} key={video?.id}/>)
                }
           </div>
+     
      )
 
 }

@@ -13,7 +13,7 @@ const useGetPopular=()=>
 
       setpopularvideos(data?.items);
 
-      console.log(data?.items);
+      
    }
 
    useEffect(()=>

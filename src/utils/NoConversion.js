@@ -1,9 +1,7 @@
 function formatNumber(input) {
           let number = parseFloat(input);
       
-          if (isNaN(number)) {
-              return "Invalid input. Please provide a valid number or a numeric string.";
-          }
+          
       
           if (number >= 1e9) {
               return (number / 1e9).toFixed(2) + 'B';
