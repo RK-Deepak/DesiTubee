@@ -12,7 +12,7 @@ import { addRelatedMovie } from '../utils/Redux/Slices/videosSlice';
 
 
 
-function Live() {
+function Live({showfull}) {
 
  
  // Adjust the delay as needed
@@ -59,12 +59,12 @@ function Live() {
 
   return (
 
-    <div className='flex flex-col gap-2 h-full overflow-y-scroll buttonscroll shadow-md shadow-slate-600'>
-      <p className='text-xs sm:text-md underline font-bold text-center'>Recommended</p>
+    <div className={`flex flex-col gap-2 ${showfull?"h-full":"h-[602px]"} overflow-y-scroll buttonscroll shadow-md shadow-slate-600`}>
+      <p className='  text-xs sm:text-md underline font-bold text-center'>Recommended</p>
     {relatedvideo &&  relatedvideo.map((videox)=>
     
     <PlaylistCard video={videox}/>
-     
+
     )}
    
     </div>

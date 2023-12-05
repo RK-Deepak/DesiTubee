@@ -26,7 +26,7 @@ function WatchVideo() {
          
   return (
     
-           <div className='p-2  w-[80%] max-w-[900px] h-fit border border-slate-500 shadow-lg shadow-slate-700'>
+           <div className='p-2  w-[100%] max-w-[900px] h-fit border border-slate-500 shadow-lg shadow-slate-700'>
     
     <iframe  src={"https://www.youtube.com/embed/"+videodata?.id+"?autoplay=1&mute=1"} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share " className=' max-w-[900px] w-[100%]  max-h-[700px] aspect-video '></iframe>
     

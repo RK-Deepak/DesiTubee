@@ -7,8 +7,9 @@ import youtubelgo from "../../assets/youtube.png";
 import namelogo from "../../assets/logo.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { togglemneu } from '../utils/Redux/Slices/SideBarSlice';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { addsearchresult } from '../utils/Redux/Slices/SearchCacheSlice';
+import useGetSearch from '../hooks/useGetSearch';
 
 const Header=()=>
 {
@@ -19,9 +20,12 @@ const Header=()=>
 
           const [suggeston,setsuggestion]=useState([]);
 
+         
+      
           const cachedata=useSelector((store)=>store.cache);
-          
 
+          
+         
           
 
         
@@ -39,9 +43,26 @@ const Header=()=>
 
           const changehandler=(e)=>
           {
+              
                 let value=e.target.value;
                 setsearchtext(value);
           }
+
+          const searchingvalue=(e)=>
+          {
+                   
+               e.preventDefault();
+                setsearchtext(e.target.textContent);
+                useGetSearch(searchtext);
+               
+                
+
+               
+             
+              
+                
+          }
+          
 
           const fetchSuggestion= async ()=>
           {
@@ -110,16 +131,17 @@ const Header=()=>
    
       <div className={`relative w-[90%] sm:w-[50%] rounded-lg bg-slate-400 border-2 gap-2 border-slate-400 justify-evenly items-center ${hamburger?"flex":"hidden"} sm:flex p-1 `}>
 
-          <input type='text' name='search' value={searchtext} onChange={changehandler} placeholder='Search...' className='border border-slate-600  w-[90%] rounded-lg px-2 py-1 placeholder:font-bold placeholder:text-slate-600 font-semibold '/>
+          <input type='text' name='search' value={searchtext} onChange={changehandler}  placeholder='Search...' className='border border-slate-600  w-[90%] rounded-lg px-2 py-1 placeholder:font-bold placeholder:text-slate-600 font-semibold '/>
           <div className='  cursor-pointer pr-1 '>
-          <BsSearchHeart className='text-2xl '  />
+          <BsSearchHeart className='text-2xl ' onClick={searchingvalue}/>
           </div>
 
-          {suggeston.length!==0 &&
+          {suggeston.length!==0 
+           &&
       <div className='text-white absolute  w-[100%] top-14  list-none flex flex-col gap-2 rounded-b-md p-2 z-40 bg-slate-600 font-semibold '>
             {suggeston.map((eachsuggestion)=>
             (
-                <li key={eachsuggestion} className=' flex gap-2'>👀<p>{eachsuggestion}</p></li>
+                <li key={eachsuggestion} className=' flex gap-2 hover:bg-blue-100 hover:p-2 hover:text-black rounded-sm text-white ' onClick={searchingvalue}>👀<p>{eachsuggestion}</p></li>
             ))}
       </div>}
 
