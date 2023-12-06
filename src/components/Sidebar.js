@@ -10,7 +10,7 @@ import {RiLiveLine} from "react-icons/ri"
 import {PiBooksFill} from "react-icons/pi"
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { closemenu } from '../utils/Redux/Slices/SideBarSlice';
+import { closemenu, togglemneu } from '../utils/Redux/Slices/SideBarSlice';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar=()=>
@@ -43,9 +43,9 @@ const Sidebar=()=>
                     return null;
           };
           return (
-                    <div className='absolute left-0 top-[50px] bg-white sm:relative sm:top-0 sm:left-0 min-w-[200px] border-2 p-2 flex flex-col gap-1 '>
+                    <div className='absolute left-0 top-[50px] bg-white sm:relative sm:top-0 sm:left-0 min-w-[200px] border-2 p-2 flex flex-col gap-1 z-20 '>
                      <div className='flex flex-col gap-2 px-2 my-2'>
-                            <NavLink to="/"><p  className='flex gap-1 items-center  font-semibold'><FaHome className='text-xl'/>Home</p></NavLink>
+                            <NavLink to="/"><p  className='flex gap-1 items-center  font-semibold' onClick={()=>dispatch(togglemneu())}><FaHome className='text-xl' />Home</p></NavLink>
                               <p className='flex gap-1 items-center  font-semibold '><SiYoutubeshorts className='text-xl'/>Shorts</p>
                               <p className='flex gap-1 items-center  font-semibold'><MdOutlineSubscriptions className='text-xl' />Subscriptions</p>
                     </div> 

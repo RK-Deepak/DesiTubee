@@ -7,62 +7,39 @@ import youtubelgo from "../../assets/youtube.png";
 import namelogo from "../../assets/logo.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { togglemneu } from '../utils/Redux/Slices/SideBarSlice';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { addPopular } from '../utils/Redux/Slices/videosSlice';
+
 import { addsearchresult } from '../utils/Redux/Slices/SearchCacheSlice';
-import useGetSearch from '../hooks/useGetSearch';
+
+
 
 const Header=()=>
 {
 
           const [searchtext,setsearchtext]=useState("");
-
           const [hamburger,sethamburger]=useState(false);
-
           const [suggeston,setsuggestion]=useState([]);
-
-         
-      
-          const cachedata=useSelector((store)=>store.cache);
-
-          
-         
-          
-
-        
-         
+          const cachedata=useSelector((store)=>store.cache); 
           const dispatch=useDispatch();
-
 
           const showsearch=()=>
           {
                     sethamburger((prev)=>!prev);
           }
 
-         
-
-
-          const changehandler=(e)=>
+         const changehandler=(e)=>
           {
               
                 let value=e.target.value;
                 setsearchtext(value);
           }
 
-          const searchingvalue=(e)=>
-          {
-                   
-               e.preventDefault();
-                setsearchtext(e.target.textContent);
-                useGetSearch(searchtext);
-               
-                
-
-               
-             
-              
-                
-          }
-          
+          const searchingvalue = async (e) => {
+            e.preventDefault();
+            const searchTextValue = e.target.textContent;
+            setsearchtext(searchTextValue);
+           
+          };
 
           const fetchSuggestion= async ()=>
           {
@@ -79,8 +56,7 @@ const Header=()=>
           useEffect(()=>
           {
             let timerid;
-
-            if(cachedata[searchtext])
+             if(cachedata[searchtext])
             {
               setsuggestion(cachedata[searchtext])
             }
@@ -91,15 +67,11 @@ const Header=()=>
                     fetchSuggestion();
                 },200)
             }
-           
-
-            return ()=>
+           return ()=>
             {
                 clearTimeout(timerid);
             }
-            
-
-          },[searchtext])
+            },[searchtext])
          
           useEffect(()=>
           {
@@ -107,20 +79,17 @@ const Header=()=>
                     {
                              
                               sethamburger(window.innerWidth<300);
-                             
-                              
                     }
                  
-                    
-                 
-                  
-
-                  window.addEventListener("resize",handlesearchbar)
+                     window.addEventListener("resize",handlesearchbar)
 
                   return ()=>window.removeEventListener("resize",handlesearchbar);
           },[])
+
+  
+       
   return (
-          <div className='flex justify-between px-4 items-center border shadow-lg py-2 sm:py-0 mx-auto '>
+          <div className='flex justify-between px-4 items-center border shadow-lg py-2 sm:py-0 mx-auto  w-full '>
       <div className={`flex items-center ${hamburger?"hidden":"flex"} `}>
           <GiHamburgerMenu className='text-2xl cursor-pointer' onClick={()=>dispatch(togglemneu())}/>
          <div className='flex justify-center items-center cursor-pointer '>
@@ -131,7 +100,7 @@ const Header=()=>
    
       <div className={`relative w-[90%] sm:w-[50%] rounded-lg bg-slate-400 border-2 gap-2 border-slate-400 justify-evenly items-center ${hamburger?"flex":"hidden"} sm:flex p-1 `}>
 
-          <input type='text' name='search' value={searchtext} onChange={changehandler}  placeholder='Search...' className='border border-slate-600  w-[90%] rounded-lg px-2 py-1 placeholder:font-bold placeholder:text-slate-600 font-semibold '/>
+          <input type='text' name='search' value={searchtext} onChange={changehandler}  placeholder='Search...' className='border border-slate-600  w-[90%] rounded-lg px-2 py-1 placeholder:font-bold placeholder:text-slate-600 font-semibold ' autoComplete='off'/>
           <div className='  cursor-pointer pr-1 '>
           <BsSearchHeart className='text-2xl ' onClick={searchingvalue}/>
           </div>

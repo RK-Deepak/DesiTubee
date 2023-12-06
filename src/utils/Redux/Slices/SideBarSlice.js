@@ -5,7 +5,7 @@ const SidebarSlice=createSlice(
                     name:"side",
                     initialState:
                     {
-                              isopen:true,
+                              isopen:false,
                     },
                     reducers:
                     {

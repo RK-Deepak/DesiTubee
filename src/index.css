@@ -1,10 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.buttonscroll::-webkit-scrollbar
-{
-          display: none;
-}
+
+
 .bgshimmer
 {
           background: rgb(122, 253, 122);

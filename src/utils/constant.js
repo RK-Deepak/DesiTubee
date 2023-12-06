@@ -90,6 +90,78 @@ export const CommentsData=[
                                         ]      
                               }
                     ]
-          }
+          },
+          {
+              name:"Dina Nath Chauhan",
+              commentsinfo:"Rishte ME toh hum tumhare Baap Lagte hai..",
+              replies:[
+                        {
+                                  name:"Rahuk Verma",
+                                  commentsinfo:"Mera Toh nhi hai...",
+                                  replies:[
+                                            {
+                                                   name:"Deepak Verma",
+                                                   commentsinfo:"Tera he Hai.."
+                                                   
+                                            },
+                                            {
+                                                      name:"pinky Verma",
+                                                      commentsinfo:"Nikl Jaa l****.."
+                                                      
+                                               },
+                                  ]      
+                        },
+                        {
+                                  name:"Shekahr Suman",
+                                  commentsinfo:"Me hur pari..",
+                                  replies:[
+                                            {
+                                                   name:"Akshay Deol"    ,
+                                                   commentsinfo:"Tu Jane Jaha" 
+                                            },
+                                            {
+                                                      name:"Rakhi Deol"    ,
+                                                      commentsinfo:"Tu Sabse Hsi Tu Sabse Juda" 
+                                               },
+                                  ]      
+                        }
+              ]
+    },
+    {
+       name:"Dina Nath Chauhan",
+       commentsinfo:"Rishte ME toh hum tumhare Baap Lagte hai..",
+       replies:[
+                 {
+                           name:"Rahuk Verma",
+                           commentsinfo:"Mera Toh nhi hai...",
+                           replies:[
+                                     {
+                                            name:"Deepak Verma",
+                                            commentsinfo:"Tera he Hai.."
+                                            
+                                     },
+                                     {
+                                               name:"pinky Verma",
+                                               commentsinfo:"Nikl Jaa l****.."
+                                               
+                                        },
+                           ]      
+                 },
+                 {
+                           name:"Shekahr Suman",
+                           commentsinfo:"Me hur pari..",
+                           replies:[
+                                     {
+                                            name:"Akshay Deol"    ,
+                                            commentsinfo:"Tu Jane Jaha" 
+                                     },
+                                     {
+                                               name:"Rakhi Deol"    ,
+                                               commentsinfo:"Tu Sabse Hsi Tu Sabse Juda" 
+                                        },
+                           ]      
+                 }
+       ]
+}
 
 ]

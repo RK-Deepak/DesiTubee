@@ -25,6 +25,7 @@ const useGetPopular=()=>
      
    },[])
 
+   return null;
   
 }
 export default useGetPopular;
