@@ -31,13 +31,13 @@ function WatchVideo() {
  
 
     <iframe
-  src={`https://www.youtube.com/embed/${videodata?.id}?autoplay=1&mute=1`}
+  src={`https://www.youtube.com/embed/${videodata?.id}?autoplay=1&mute=1&playsinline=1`}
   title="YouTube video player"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen={true}
   className='max-w-[900px] w-[100%] max-h-[700px] aspect-video'
 ></iframe>
-    
+
     <div className='flex flex-col gap-1 '> 
     <div className='flex flex-col md:flex-row  md:justify-between my-2 gap-2'>
     <p className='font-bold text-xs sm:text-sm md:text-md w-[100%] sm:w-[80%] '>{snippet?.title.slice(0,80)}...</p>

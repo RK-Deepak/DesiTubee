@@ -30,7 +30,7 @@ dispatch(removechatdata());
    
     
   return (
-    <div className='flex  flex-col sm:flex-row relative   gap-2  w-[90%] mx-auto '>
+    <div className='flex  flex-col sm:flex-row relative   gap-2  w-[90%] mx-auto -z-10 '>
     <div className='flex flex-col gap-2 justify-evenly mx-auto w-[100%]   h-fit '>
      <WatchVideo />
      <div className='border border-slate-800 shadow-lg shadow-slate-600  p-2 w-[100%] max-w-[900px]  '>

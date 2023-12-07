@@ -29,7 +29,7 @@ const Header=()=>
 
          const changehandler=(e)=>
           {
-              
+            e.preventDefault();
                 let value=e.target.value;
                 setsearchtext(value);
           }
@@ -73,23 +73,25 @@ const Header=()=>
             }
             },[searchtext])
          
-          useEffect(()=>
-          {
-                    const handlesearchbar=()=>
-                    {
-                             
-                              sethamburger(window.innerWidth<300);
-                    }
-                 
-                     window.addEventListener("resize",handlesearchbar)
+            useEffect(() => {
+              const handleSearchBar = () => {
 
-                  return ()=>window.removeEventListener("resize",handlesearchbar);
-          },[])
+                sethamburger(window.innerWidth < 300);
+              };
+            
+             
+              handleSearchBar();
+            
+              window.addEventListener("resize", handleSearchBar);
+            
+              // Remove the event listener when the component is unmounted
+              return () => window.removeEventListener("resize", handleSearchBar);
+            }, []);
 
   
        
   return (
-          <div className='flex justify-between px-4 items-center border shadow-lg py-2 sm:py-0 mx-auto  w-full '>
+          <div className='flex justify-between px-4 items-center border shadow-lg py-2 sm:py-0 mx-auto  w-full sticky top-0 bg-white '>
       <div className={`flex items-center ${hamburger?"hidden":"flex"} `}>
           <GiHamburgerMenu className='text-2xl cursor-pointer' onClick={()=>dispatch(togglemneu())}/>
          <div className='flex justify-center items-center cursor-pointer '>
@@ -99,15 +101,16 @@ const Header=()=>
       </div>
    
       <div className={`relative w-[90%] sm:w-[50%] rounded-lg bg-slate-400 border-2 gap-2 border-slate-400 justify-evenly items-center ${hamburger?"flex":"hidden"} sm:flex p-1 `}>
-
+<div className='flex gap-1 items-center justify-evenly  w-[100%]'>
           <input type='text' name='search' value={searchtext} onChange={changehandler}  placeholder='Search...' className='border border-slate-600  w-[90%] rounded-lg px-2 py-1 placeholder:font-bold placeholder:text-slate-600 font-semibold ' autoComplete='off'/>
-          <div className='  cursor-pointer pr-1 '>
+          <div className='cursor-pointer pr-1 '>
           <BsSearchHeart className='text-2xl ' onClick={searchingvalue}/>
+          </div>
           </div>
 
           {suggeston.length!==0 
            &&
-      <div className='text-white absolute  w-[100%] top-14  list-none flex flex-col gap-2 rounded-b-md p-2 z-40 bg-slate-600 font-semibold '>
+      <div className='text-white absolute  w-[100%] top-14  list-none flex flex-col gap-2 rounded-b-md p-2  bg-slate-600 font-semibold z-50 '>
             {suggeston.map((eachsuggestion)=>
             (
                 <li key={eachsuggestion} className=' flex gap-2 hover:bg-blue-100 hover:p-2 hover:text-black rounded-sm text-white ' onClick={searchingvalue}>👀<p>{eachsuggestion}</p></li>

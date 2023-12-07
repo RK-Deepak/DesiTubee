@@ -31,3 +31,9 @@
                     opacity: 1;
           }
 }
+.startbg-image 
+{
+          background-image: url("../assets/9oil.gif");
+          background-position: center;
+          background-size: 100% 100%;
+}

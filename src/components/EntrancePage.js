@@ -1,12 +1,15 @@
 import React from 'react'
-import youtube from "../../assets/youtube.png"
+
 import logo from "../../assets/logo.png"
+import midage from "../../assets/9oil.gif"
 
 function EntrancePage() {
   return (
-    <div className='flex justify-center items-center bg-red-700 min-h-screen flex-col '>
+    <div className='flex justify-center items-center min-h-screen flex-col startbg-image'>
         
-          <img src={logo} alt='' className='text-black' loading='eager'/>
+          
+          <img src={logo} alt='' className='text-black absolute' loading='eager'/>
+        
           
     </div>
   )
